@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.bson.BsonBinary;
 import org.bson.BsonBinarySubType;
+import org.bson.types.Binary;
 
 @Service
 public class CatService {
@@ -24,7 +25,7 @@ public class CatService {
 
     public String addCat(String name, String description, MultipartFile file) throws IOException { 
         Cat cat = new Cat(name, description); 
-        cat.setImage(new BsonBinary(BsonBinarySubType.BINARY, file.getBytes())); 
+        cat.setImage(new Binary(BsonBinarySubType.BINARY, file.getBytes())); 
         cat = repository.insert(cat); 
         return cat.getName(); 
     }

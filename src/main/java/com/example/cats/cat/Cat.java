@@ -1,6 +1,7 @@
 package com.example.cats.cat;
 import java.util.List;
 
+import org.bson.types.Binary;
 import org.bson.BsonBinary;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -21,7 +22,7 @@ public class Cat {
 
     private String description;
 
-    private BsonBinary image;
+    private Binary image;
 
     Cat(String name, String description){
         this.name=name;
