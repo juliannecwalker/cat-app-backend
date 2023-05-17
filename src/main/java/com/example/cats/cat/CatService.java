@@ -33,5 +33,9 @@ public class CatService {
     public Cat getCat(String id) { 
         return repository.findById(id).get(); 
     }
+
+    public void deleteById(String id){
+        repository.deleteById(id);
+    }
     
 }
