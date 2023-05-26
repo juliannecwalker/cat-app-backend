@@ -33,13 +33,9 @@ public class CatController {
     }
 
     @GetMapping("/{name}")
-    public String getSingleCat(@PathVariable String name, Model model) {
+    public ResponseEntity<Cat> getSingleCat(@PathVariable String name) {
         Cat cat= service.getCat(name);
-        model.addAttribute("name", cat.getName());
-        model.addAttribute("description", cat.getDescription());
-        model.addAttribute("image", 
-        Base64.getEncoder().encodeToString(cat.getImage().getData()));
-        return "cats";
+        return new ResponseEntity<Cat>(cat, HttpStatus.OK);
     }
 
     @PostMapping("/new")
