@@ -39,7 +39,7 @@ public class CatController {
     }
 
     @PostMapping("/new")
-    public String addPhoto(@RequestParam("name") String name, @RequestParam("description") String description, @RequestParam("image") MultipartFile image, Model model) 
+    public String addCat(@RequestParam("name") String name, @RequestParam("description") String description, @RequestParam("image") MultipartFile image, Model model) 
     throws IOException {
         String id = service.addCat(name, description, image);
         return "redirect:/" + id;
